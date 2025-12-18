@@ -1,0 +1,13 @@
+* text=auto
+
+# Ensure .NET solution/project files are treated as text even with CRLF line endings
+*.sln text eol=crlf
+*.csproj text eol=crlf
+
+# Source and XAML files
+*.cs text eol=lf
+*.axaml text eol=lf
+*.xaml text eol=lf
+
+# Documentation
+*.md text eol=lf

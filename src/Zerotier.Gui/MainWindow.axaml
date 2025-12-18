@@ -1,0 +1,36 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Zerotier.Gui.MainWindow"
+        Title="{Binding Title}"
+        Width="420" Height="280">
+  <StackPanel Margin="16" Spacing="8">
+    <TextBlock Text="{Binding Title}" FontSize="20" FontWeight="SemiBold" />
+    <TextBlock Text="{Binding Subtitle}" />
+    <Border Background="#0F172A" CornerRadius="8" Padding="12">
+      <StackPanel Spacing="4">
+        <TextBlock Foreground="White" Text="Tray sample" FontWeight="SemiBold" />
+        <TextBlock Foreground="White" Text="Use the tray icon to reopen or quit the app." />
+        <TextBlock Foreground="White" Text="Networks appear as submenus with quick toggles." />
+      </StackPanel>
+    </Border>
+    <TextBlock Text="Sample networks loaded for tray menu wiring:" FontWeight="SemiBold" />
+    <ItemsControl Items="{Binding Networks}">
+      <ItemsControl.ItemTemplate>
+        <DataTemplate>
+          <Border BorderBrush="#CBD5E1" BorderThickness="1" CornerRadius="6" Padding="8" Margin="0 4 0 0">
+            <StackPanel>
+              <TextBlock Text="{Binding Name}" FontWeight="SemiBold" />
+              <TextBlock Text="{Binding NetworkId}" FontFamily="Consolas" FontSize="12" />
+              <TextBlock Text="{Binding StatusLabel}" />
+              <StackPanel Orientation="Horizontal" Spacing="8" Margin="0 4 0 0">
+                <CheckBox IsChecked="{Binding AllowDefault}" IsEnabled="False" Content="Allow default" />
+                <CheckBox IsChecked="{Binding AllowManaged}" IsEnabled="False" Content="Managed routes" />
+                <CheckBox IsChecked="{Binding AllowGlobal}" IsEnabled="False" Content="Global IPv6" />
+              </StackPanel>
+            </StackPanel>
+          </Border>
+        </DataTemplate>
+      </ItemsControl.ItemTemplate>
+    </ItemsControl>
+  </StackPanel>
+</Window>
